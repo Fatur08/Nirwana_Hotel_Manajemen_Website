@@ -13,82 +13,82 @@
     <div class="divider"></div>
     <ul class="nav menu">
     <?php 
-        if (isset($_GET['dashboard'])){ ?>
+        if (isset($_GET['home'])){ ?>
             <li class="active">
-                <a href="index.php?dashboard"><em class="fa fa-dashboard">&nbsp;</em>
-                    Dashboard
+                <a href="index.php?home"><em class="fa fa-dashboard">&nbsp;</em>
+                    Home
                 </a>
             </li>
         <?php } else{?>
             <li>
-                <a href="index.php?dashboard"><em class="fa fa-dashboard">&nbsp;</em>
-                    Dashboard
+                <a href="index.php?home"><em class="fa fa-dashboard">&nbsp;</em>
+                    Home
                 </a>
             </li>
         <?php }
-        if (isset($_GET['reservation'])){ ?>
+        if (isset($_GET['reservasi'])){ ?>
             <li class="active">
-            <a href="index.php?reservation"><em class="fa fa-calendar">&nbsp;</em>
-                    Reservation
+            <a href="index.php?reservasi"><em class="fa fa-calendar">&nbsp;</em>
+                    Reservasi
                 </a>
             </li>
         <?php } else{?>
             <li>
-            <a href="index.php?reservation"><em class="fa fa-calendar">&nbsp;</em>
-                    Reservation
+            <a href="index.php?reservasi"><em class="fa fa-calendar">&nbsp;</em>
+                    Reservasi
                 </a>
             </li>
         <?php }
-        if (isset($_GET['room_mang'])){ ?>
+        if (isset($_GET['kamar'])){ ?>
             <li class="active">
-                <a href="index.php?room_mang"><em class="fa fa-bed">&nbsp;</em>
-                    Manage Rooms
+                <a href="index.php?kamar"><em class="fa fa-bed">&nbsp;</em>
+                    Kamar
                 </a>
             </li>
         <?php } else{?>
             <li>
-            <a href="index.php?room_mang"><em class="fa fa-bed">&nbsp;</em>
-                    Manage Rooms
+            <a href="index.php?kamar"><em class="fa fa-bed">&nbsp;</em>
+                    Kamar
                 </a>
             </li>
         <?php }
-        if (isset($_GET['report_manage'])){ ?>
+        if (isset($_GET['laporan'])){ ?>
             <li class="active">
-                <a href="index.php?report_manage"><em class="fa fa-pie-chart">&nbsp;</em>
-                    Report
+                <a href="index.php?laporan"><em class="fa fa-pie-chart">&nbsp;</em>
+                    Laporan
                 </a>
             </li>
         <?php } else{?>
             <li>
-            <a href="index.php?report_manage"><em class="fa fa-pie-chart">&nbsp;</em>
-                    Report
+            <a href="index.php?laporan"><em class="fa fa-pie-chart">&nbsp;</em>
+                    Laporan
                 </a>
             </li>
             
         <?php }
-        if (isset($_GET['staff_mang'])){ ?>
+        if (isset($_GET['karyawan'])){ ?>
             <li class="active">
-                <a href="index.php?staff_mang"><em class="fa fa-users">&nbsp;</em>
-                    Staff Section
+                <a href="index.php?karyawan"><em class="fa fa-users">&nbsp;</em>
+                    Karyawan
                 </a>
             </li>
         <?php } else{?>
             <li>
-                <a href="index.php?staff_mang"><em class="fa fa-users">&nbsp;</em>
-                    Staff Section
+                <a href="index.php?karyawan"><em class="fa fa-users">&nbsp;</em>
+                    Karyawan
                 </a>
             </li>
         <?php }
-        if (isset($_GET['complain'])){ ?>
+        if (isset($_GET['keluhan'])){ ?>
             <li class="active">
-                <a href="index.php?complain"><em class="fa fa-comments">&nbsp;</em>
-                    Manage Complaints
+                <a href="index.php?keluhan"><em class="fa fa-comments">&nbsp;</em>
+                    Keluhan
                 </a>
             </li>
         <?php } else{?>
             <li>
-                <a href="index.php?complain"><em class="fa fa-comments">&nbsp;</em>
-                    Manage Complaints
+                <a href="index.php?keluhan"><em class="fa fa-comments">&nbsp;</em>
+                    Keluhan
                 </a>
             </li>
         <?php }

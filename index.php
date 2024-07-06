@@ -13,26 +13,26 @@ include_once "header.php";
 include_once "sidebar.php";
 
 
-if (isset($_GET['room_mang'])){
-    include_once "room_mang.php";
+if (isset($_GET['kamar'])){
+    include_once "kamar.php";
 }
-elseif (isset($_GET['dashboard'])){
-    include_once "dashboard.php";
+elseif (isset($_GET['home'])){
+    include_once "home.php";
 }
-elseif (isset($_GET['reservation'])){
-    include_once "reservation.php";
+elseif (isset($_GET['reservasi'])){
+    include_once "reservasi.php";
 }
-elseif (isset($_GET['staff_mang'])){
-    include_once "staff_mang.php";
+elseif (isset($_GET['karyawan'])){
+    include_once "karyawan.php";
 }
 elseif (isset($_GET['add_emp'])){
     include_once "add_emp.php";
 }
-elseif (isset($_GET['complain'])){
-    include_once "complain.php";
+elseif (isset($_GET['keluhan'])){
+    include_once "keluhan.php";
 }
-elseif (isset($_GET['report_manage'])){
-    include_once "report_manage.php";
+elseif (isset($_GET['laporan'])){
+    include_once "laporan.php";
 }
 elseif (isset($_GET['statistics'])){
     include_once "statistics.php";
