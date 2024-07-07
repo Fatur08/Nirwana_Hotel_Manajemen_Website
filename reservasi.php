@@ -40,56 +40,56 @@ if (isset($_GET['room_id'])){
 
                         <div class="panel panel-default">
                             <div class="panel-heading">Informasi Kamar:
-                                <a class="btn btn-secondary pull-right" href="index.php?room_mang">Replan Booking</a>
+                                <a class="btn btn-secondary pull-right" href="index.php?reservasi">Buat Ulang</a>
                             </div>
                             <div class="panel-body">
                                 <div class="form-group col-lg-6">
-                                    <label>Room Type</label>
-                                    <select class="form-control" id="room_type" data-error="Select Room Type" required>
-                                        <option selected disabled>Select Room Type</option>
+                                    <label>Tipe Kamar</label>
+                                    <select class="form-control" id="room_type" data-error="Pilih Tipe Kamar" required>
+                                        <option selected disabled>Pilih Tipe Kamar</option>
                                         <option selected value="<?php echo $get_room_type_id; ?>"><?php echo $get_room_type; ?></option>
                                     </select>
                                     <div class="help-block with-errors"></div>
                                 </div>
 
                                 <div class="form-group col-lg-6">
-                                    <label>Room No</label>
-                                    <select class="form-control" id="room_no" onchange="fetch_price(this.value)" required data-error="Select Room No">
-                                        <option selected disabled>Select Room No</option>
+                                    <label>Nomor Kamar</label>
+                                    <select class="form-control" id="room_no" onchange="fetch_price(this.value)" required data-error="Pilih Nomor Kamar">
+                                        <option selected disabled>Pilih Nomor Kamar</option>
                                         <option selected value="<?php echo $get_room_id; ?>"><?php echo $get_room_no; ?></option>
                                     </select>
                                     <div class="help-block with-errors"></div>
                                 </div>
 
                                 <div class="form-group col-lg-6">
-                                    <label>Check In Date</label>
-                                    <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="check_in_date" data-error="Select Check In Date" required>
+                                    <label>Tanggal Check In</label>
+                                    <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="check_in_date" data-error="Pilih Tanggal Check In" required>
                                     <div class="help-block with-errors"></div>
                                 </div>
 
                                 <div class="form-group col-lg-6">
-                                    <label>Check Out Date</label>
-                                    <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="check_out_date" data-error="Select Check Out Date" required>
+                                    <label>Tanggal Check Out</label>
+                                    <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="check_out_date" data-error="Pilih Tanggal Check Out" required>
                                     <div class="help-block with-errors"></div>
                                 </div>
 
                                 <div class="col-lg-12">
-                                    <h4 style="font-weight: bold">Total Days : <span id="staying_day">0</span> Days</h4>
-                                    <h4 style="font-weight: bold">Price: <span id="price"><?php echo $get_room_price; ?></span> /-</h4>
-                                    <h4 style="font-weight: bold">Total Amount : <span id="total_price">0</span> /-</h4>
+                                    <h4 style="font-weight: bold">Total Hari : <span id="staying_day">0</span> Hari</h4>
+                                    <h4 style="font-weight: bold">Harga: <span id="price"><?php echo $get_room_price; ?></span> /-</h4>
+                                    <h4 style="font-weight: bold">Total Jumlah : <span id="total_price">0</span> /-</h4>
                                 </div>
                             </div>
                         </div>
                     <?php } else{?>
                         <div class="panel panel-default">
-                            <div class="panel-heading">Room Information:
-                                <a class="btn btn-secondary pull-right" style="border-radius:0%" href="index.php?reservation">Replan Booking</a>
+                            <div class="panel-heading">Informasi Kamar :
+                                <a class="btn btn-secondary pull-right" style="border-radius:0%" href="index.php?reservasi">Buat Ulang</a>
                             </div>
                             <div class="panel-body">
                                 <div class="form-group col-lg-6">
-                                    <label>Room Type</label>
+                                    <label>Tipe Kamar</label>
                                     <select class="form-control" id="room_type" onchange="fetch_room(this.value);" required data-error="Select Room Type">
-                                        <option selected disabled>Select Room Type</option>
+                                        <option selected disabled>Pilih Tipe Kamar</option>
                                         <?php
                                         $query  = "SELECT * FROM room_type";
                                         $result = mysqli_query($connection,$query);
@@ -103,7 +103,7 @@ if (isset($_GET['room_id'])){
                                 </div>
 
                                 <div class="form-group col-lg-6">
-                                    <label>Room No</label>
+                                    <label>Nomor Kamar</label>
                                     <select class="form-control" id="room_no" onchange="fetch_price(this.value)" required data-error="Select Room No">
 
                                     </select>
@@ -111,56 +111,56 @@ if (isset($_GET['room_id'])){
                                 </div>
 
                                 <div class="form-group col-lg-6">
-                                    <label>Check In Date</label>
+                                    <label>Tanggal Check In</label>
                                     <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="check_in_date" data-error="Select Check In Date" required>
                                     <div class="help-block with-errors"></div>
                                 </div>
 
                                 <div class="form-group col-lg-6">
-                                    <label>Check Out Date</label>
+                                    <label>Tanggal Check Out</label>
                                     <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="check_out_date" data-error="Select Check Out Date" required>
                                     <div class="help-block with-errors"></div>
                                 </div>
 
                                 <div class="col-lg-12">
-                                    <h4 style="font-weight: bold">Total Days : <span id="staying_day">0</span> Days</h4>
-                                    <h4 style="font-weight: bold">Price: <span id="price">0</span> /-</h4>
-                                    <h4 style="font-weight: bold">Total Amount : <span id="total_price">0</span> /-</h4>
+                                    <h4 style="font-weight: bold">Total Hari : <span id="staying_day">0</span> Hari</h4>
+                                    <h4 style="font-weight: bold">Harga: <span id="price">0</span> /-</h4>
+                                    <h4 style="font-weight: bold">Total Jumlah : <span id="total_price">0</span> /-</h4>
                                 </div>
                             </div>
                         </div>
                     <?php }
                     ?>
                     <div class="panel panel-default">
-                        <div class="panel-heading">Customer Detail:</div>
+                        <div class="panel-heading">Detail Kustomer:</div>
                         <div class="panel-body">
                             <div class="form-group col-lg-6">
-                                <label>First Name</label>
-                                <input class="form-control" placeholder="First Name" id="first_name" data-error="Enter First Name" required>
+                                <label>Nama Depan</label>
+                                <input class="form-control" placeholder="Nama Depan" id="first_name" data-error="Enter First Name" required>
                                 <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group col-lg-6">
-                                <label>Last Name</label>
-                                <input class="form-control" placeholder="Last Name" id="last_name">
+                                <label>Nama Belakang</label>
+                                <input class="form-control" placeholder="Nama Belakang" id="last_name">
                             </div>
 
                             <div class="form-group col-lg-6">
-                                <label>Contact Number</label>
-                                <input type="number" class="form-control" data-error="Enter Min 10 Digit" data-minlength="10" placeholder="Contact No" id="contact_no" required>
+                                <label>Nomor Handphone</label>
+                                <input type="number" class="form-control" data-error="Enter Min 10 Digit" data-minlength="10" placeholder="Nomor Handphone" id="contact_no" required>
                                 <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group col-lg-6">
-                                <label>Email Address</label>
-                                <input type="email" class="form-control" placeholder="Email Address" id="email" data-error="Enter Valid Email Address" required>
+                                <label>Email</label>
+                                <input type="email" class="form-control" placeholder="Email" id="email" data-error="Enter Valid Email Address" required>
                                 <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group col-lg-6">
-                                <label>ID Card Type</label>
-                                <select class="form-control" id="id_card_id" data-error="Select ID Card Type" required onchange="validId(this.value);">
-                                    <option selected disabled>Select ID Card Type</option>
+                                <label>Jenis Kartu ID</label>
+                                <select class="form-control" id="id_card_id" data-error="Pilih Jenis Kartu ID" required onchange="validId(this.value);">
+                                    <option selected disabled>Pilih Jenis Kartu ID</option>
                                     <?php
                                     $query  = "SELECT * FROM id_card_type";
                                     $result = mysqli_query($connection,$query);
@@ -174,19 +174,19 @@ if (isset($_GET['room_id'])){
                             </div>
 
                             <div class="form-group col-lg-6">
-                                <label>Selected ID Card Number</label>
-                                <input type="text" class="form-control" placeholder="ID Card Number" id="id_card_no" data-error="Enter Valid ID Card No" required>
+                                <label>Nomor Kartu ID</label>
+                                <input type="text" class="form-control" placeholder="Nomor Kartu ID" id="id_card_no" data-error="Enter Valid ID Card No" required>
                                 <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group col-lg-12">
-                                <label>Residential Address</label>
-                                <input type="text" class="form-control" placeholder="Full Address" id="address" required>
+                                <label>Alamat Tempat Tinggal</label>
+                                <input type="text" class="form-control" placeholder="Alamat Tempat Tinggal" id="address" required>
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-lg btn-success pull-right" style="border-radius:0%">Submit</button>
+                    <button type="submit" class="btn btn-lg btn-success pull-right" style="border-radius:0%">Simpan Data</button>
                 </div>
             </form>
         </div>
@@ -198,7 +198,7 @@ if (isset($_GET['room_id'])){
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title text-center"><b>Room Booking</b></h4>
+                <h4 class="modal-title text-center"><b>Pemesanan Kamar</b></h4>
             </div>
             <div class="modal-body">
                 <div class="row">
@@ -213,31 +213,31 @@ if (isset($_GET['room_id'])){
                             </thead> -->
                             <tbody>
                             <tr>
-                                <td><b>Customer Name</b></td>
+                                <td><b>Nama Kustomer</b></td>
                                 <td id="getCustomerName"></td>
                             </tr>
                             <tr>
-                                <td><b>Room Type</b></td>
+                                <td><b>Tipe Kamar</b></td>
                                 <td id="getRoomType"></td>
                             </tr>
                             <tr>
-                                <td><b>Room No</b></td>
+                                <td><b>Nomor Kamar</b></td>
                                 <td id="getRoomNo"></td>
                             </tr>
                             <tr>
-                                <td><b>Check In</b></td>
+                                <td><b>Tanggal Check In</b></td>
                                 <td id="getCheckIn"></td>
                             </tr>
                             <tr>
-                                <td><b>Check Out</b></td>
+                                <td><b>Tanggal Check Out</b></td>
                                 <td id="getCheckOut"></td>
                             </tr>
                             <tr>
-                                <td><b>Total Amount</b></td>
+                                <td><b>Total Jumlah</b></td>
                                 <td id="getTotalPrice"></td>
                             </tr>
                             <tr>
-                                <td><b>Payment Status</b></td>
+                                <td><b>Status Pembayaran</b></td>
                                 <td id="getPaymentStaus"></td>
                             </tr>
 
@@ -247,7 +247,7 @@ if (isset($_GET['room_id'])){
                 </div>
             </div>
             <div class="modal-footer">
-                <a class="btn btn-primary" style="border-radius:60px;" href="index.php?reservation"><i class="fa fa-check-circle"></i></a>
+                <a class="btn btn-primary" style="border-radius:60px;" href="index.php?reservasi"><i class="fa fa-check-circle"></i></a>
             </div>
         </div>
 
