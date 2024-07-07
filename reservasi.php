@@ -18,7 +18,7 @@ if (isset($_GET['room_id'])){
             <li><a href="#">
                     <em class="fa fa-home"></em>
                 </a></li>
-            <li class="active">Reservation</li>
+            <li class="active">Reservasi</li>
         </ol>
     </div><!--/.row-->
 
@@ -39,7 +39,7 @@ if (isset($_GET['room_id'])){
                     if (isset($_GET['room_id'])){?>
 
                         <div class="panel panel-default">
-                            <div class="panel-heading">Room Information:
+                            <div class="panel-heading">Informasi Kamar:
                                 <a class="btn btn-secondary pull-right" href="index.php?room_mang">Replan Booking</a>
                             </div>
                             <div class="panel-body">
