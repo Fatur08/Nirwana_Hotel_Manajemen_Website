@@ -112,12 +112,12 @@ if (isset($_GET['delete_room'])) {
         $sql = "DELETE FROM room WHERE room_id = '$room_id'";
         $result = mysqli_query($connection, $sql);
         if ($result) {
-            header("Location: index.php?room_mang&success");
+            header("Location: index.php?kamar&success");
         } else {
-            header("Location: index.php?room_mang&error");
+            header("Location: index.php?kamar&error");
         }
     } else {
-        header("Location: index.php?room_mang&error");
+        header("Location: index.php?kamar&error");
     }
 }
 

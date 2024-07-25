@@ -14,7 +14,7 @@ $('#addRoom').submit(function () {
         success: function (response) {
             if (response.done == true) {
                 $('#addRoom').modal('hide');
-                window.location.href = 'index.php?room_mang';
+                window.location.href = 'index.php?kamar';
             } else {
                 $('.response').html('<div class="alert bg-danger alert-dismissable" role="alert"><em class="fa fa-lg fa-warning">&nbsp;</em>' + response.data + '</div>');
             }
@@ -42,7 +42,7 @@ $('#roomEditFrom').submit(function () {
         success: function (response) {
             if (response.done == true) {
                 $('#editRoom').modal('hide');
-                window.location.href = 'index.php?room_mang';
+                window.location.href = 'index.php?kamar';
             } else {
                 $('.response').html('<div class="alert bg-danger alert-dismissable" role="alert"><em class="fa fa-lg fa-warning">&nbsp;</em>' + response.data + '</div>');
             }
@@ -282,7 +282,7 @@ $('#advancePayment').submit(function () {
         success: function (response) {
             if (response.done == true) {
                 $('#checkIn').modal('hide');
-                window.location.href = 'index.php?room_mang';
+                window.location.href = 'index.php?kamar';
             } else {
                 $('.payment-response').html('<div class="alert bg-danger alert-dismissable" role="alert"><em class="fa fa-lg fa-warning">&nbsp;</em>' + response.data + '</div>');
             }
@@ -342,7 +342,7 @@ $('#checkOutRoom_n').submit(function () {
         success: function (response) {
             if (response.done == true) {
                 $('#checkIn').modal('hide');
-                window.location.href = 'index.php?room_mang';
+                window.location.href = 'index.php?kamar';
             } else {
                 $('.checkout-response').html('<div class="alert bg-danger alert-dismissable" role="alert"><em class="fa fa-lg fa-warning">&nbsp;</em>' + response.data + '</div>');
             }

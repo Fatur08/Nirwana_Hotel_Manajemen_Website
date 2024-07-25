@@ -14,8 +14,8 @@
         $delete_booking_result = mysqli_query($connection, $delete_booking_query);
 
         if ($update_room_result && $delete_booking_result) {
-            // Jika pembatalan berhasil, arahkan kembali ke halaman utama dengan parameter "room_mangp"
-            header("Location: index.php?room_mang");
+            // Jika pembatalan berhasil, arahkan kembali ke halaman utama dengan parameter "kamar"
+            header("Location: index.php?kamar");
             exit();
         } else {
             // Jika terjadi kesalahan saat membatalkan pemesanan, beri tahu pengguna

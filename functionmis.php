@@ -19,7 +19,7 @@ if (isset($_POST['login'])) {
 
     if($userdetails['username']=='manager')
     {
-        header('Location: index.php?room_mang');
+        header('Location: index.php?kamar');
     }
     else{
 

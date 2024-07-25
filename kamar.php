@@ -77,14 +77,14 @@ if (mysqli_num_rows($rooms_result) > 0) {
             <td><?php echo $rooms['room_type'] ?></td>
             <td>
                 <?php if ($rooms['status'] == 0) { ?>
-                    <a href="index.php?reservation&room_id=<?php echo $rooms['room_id'] ?>&room_type_id=<?php echo $rooms['room_type_id'] ?>" class="btn btn-success" style="border-radius:0%">Book Room</a>
+                    <a href="index.php?reservation&room_id=<?php echo $rooms['room_id'] ?>&room_type_id=<?php echo $rooms['room_type_id'] ?>" class="btn btn-success" style="border-radius:0%">Tersedia</a>
 
                 <?php } else if ($rooms['status'] == 1 && $rooms['check_in_status'] == 0) { ?>
                     <?php if ($booking_id !== null) { ?>
-                        <a href="remove_status.php?room_id=<?php echo $rooms['room_id'] ?>&booking_id=<?php echo $booking_id ?>" class="btn btn-danger" style="border-radius:0%">Cancel</a>
+                        <a href="remove_status.php?room_id=<?php echo $rooms['room_id'] ?>&booking_id=<?php echo $booking_id ?>" class="btn btn-danger" style="border-radius:0%">Batalkan</a>
 
                     <?php } else { ?>
-                        <a href="#" class="btn btn-danger" style="border-radius:0%">Cancel</a>
+                        <a href="#" class="btn btn-danger" style="border-radius:0%">Batalkan</a>
 
                     <?php } ?>
                 <?php } else if ($rooms['status'] == 1 && $rooms['check_in_status'] == 1) { ?>
@@ -96,7 +96,7 @@ if (mysqli_num_rows($rooms_result) > 0) {
                                     <td>
                                         <?php
                                         if ($rooms['status'] == 1 && $rooms['check_in_status'] == 0) {
-                                            echo '<button class="btn btn-warning" id="checkInRoom"  data-id="' . $rooms['room_id'] . '" data-toggle="modal" style="border-radius:0%" data-target="#checkIn">Check In</button>';
+                                            echo '<button class="btn btn-warning" id="checkInRoom"  data-id="' . $rooms['room_id'] . '" data-toggle="modal" style="border-radius:0%" data-target="#checkIn">Konfirmasi</button>';
                                         } elseif ($rooms['status'] == 0) {
                                             echo '-';
                                         } else {
@@ -145,7 +145,7 @@ if (mysqli_num_rows($rooms_result) > 0) {
         </div>
     </div>
 
-    <!-- Add Room Modal -->
+    <!-- Tambah Kamar Modal -->
     <div id="addRoom" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
@@ -184,7 +184,7 @@ if (mysqli_num_rows($rooms_result) > 0) {
                                            data-error="Masukkan Nomor Kamar" required>
                                     <div class="help-block with-errors"></div>
                                 </div>
-                                <button class="btn btn-success pull-right">Add Room</button>
+                                <button class="btn btn-success pull-right">Tambah Kamar</button>
                             </form>
                         </div>
                     </div>
@@ -252,7 +252,7 @@ if (mysqli_num_rows($rooms_result) > 0) {
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title text-center"><b>Customer's Detail</b></h4>
+                    <h4 class="modal-title text-center"><b>Informasi Pemesan</b></h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -266,11 +266,11 @@ if (mysqli_num_rows($rooms_result) > 0) {
                                 </thead> -->
                                 <tbody>
                                 <tr>
-                                    <td><b>Customer Name</b></td>
+                                    <td><b>Nama Pemesan</b></td>
                                     <td id="customer_name"></td>
                                 </tr>
                                 <tr>
-                                    <td><b>Contact Number</b></td>
+                                    <td><b>Nomor Kontak</b></td>
                                     <td id="customer_contact_no"></td>
                                 </tr>
                                 <tr>
@@ -278,19 +278,19 @@ if (mysqli_num_rows($rooms_result) > 0) {
                                     <td id="customer_email"></td>
                                 </tr>
                                 <tr>
-                                    <td><b>ID Card Type</b></td>
+                                    <td><b>Tipe Kartu</b></td>
                                     <td id="customer_id_card_type"></td>
                                 </tr>
                                 <tr>
-                                    <td><b>ID Card Number</b></td>
+                                    <td><b>Nomor Kartu</b></td>
                                     <td id="customer_id_card_number"></td>
                                 </tr>
                                 <tr>
-                                    <td><b>Address</b></td>
+                                    <td><b>Alamat</b></td>
                                     <td id="customer_address"></td>
                                 </tr>
                                 <tr>
-                                    <td><b>Remaining Amount</b></td>
+                                    <td><b>Sisa Pembayaran</b></td>
                                     <td id="remaining_price"></td>
                                 </tr>
                                 </tbody>
@@ -311,7 +311,7 @@ if (mysqli_num_rows($rooms_result) > 0) {
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title text-center"><b>Room - Check In</b></h4>
+                    <h4 class="modal-title text-center"><b>Check In Kamar</b></h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -320,7 +320,7 @@ if (mysqli_num_rows($rooms_result) > 0) {
                                 
                                 <tbody>
                                 <tr>
-                                    <td><b>Customer Name</b></td>
+                                    <td><b>Nama Pemesan</b></td>
                                     <td id="getCustomerName"></td>
                                 </tr>
                                 <tr>
@@ -328,7 +328,7 @@ if (mysqli_num_rows($rooms_result) > 0) {
                                     <td id="getRoomType"></td>
                                 </tr>
                                 <tr>
-                                    <td><b>Room Number</b></td>
+                                    <td><b>Nomor Kamar</b></td>
                                     <td id="getRoomNo"></td>
                                 </tr>
                                 <tr>
@@ -340,7 +340,7 @@ if (mysqli_num_rows($rooms_result) > 0) {
                                     <td id="getCheckOut"></td>
                                 </tr>
                                 <tr>
-                                    <td><b>Total Price</b></td>
+                                    <td><b>Total Harga Sewa</b></td>
                                     <td id="getTotalPrice"></td>
                                 </tr>
                                 </tbody>
@@ -348,12 +348,12 @@ if (mysqli_num_rows($rooms_result) > 0) {
                             <form role="form" id="advancePayment">
                                 <div class="payment-response"></div>
                                 <div class="form-group col-lg-12">
-                                    <label>Advance Payment</label>
+                                    <label>Uang Muka</label>
                                     <input type="number" class="form-control" id="advance_payment"
-                                           placeholder="Please Enter Amounts Here..">
+                                           placeholder="Masukkan Nominal Uang Muka">
                                 </div>
                                 <input type="hidden" id="getBookingID" value="">
-                                <button type="submit" class="btn btn-primary pull-right">Payment & Check In</button>
+                                <button type="submit" class="btn btn-primary pull-right">Konfirmasi & Check In</button>
 
                             </form>
                         </div>
@@ -372,7 +372,7 @@ if (mysqli_num_rows($rooms_result) > 0) {
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title text-center"><b>Room- Check Out</b></h4>
+                    <h4 class="modal-title text-center"><b>Check Out Kamar</b></h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -381,7 +381,7 @@ if (mysqli_num_rows($rooms_result) > 0) {
                                 
                                 <tbody>
                                 <tr>
-                                    <td><b>Customer Name</b></td>
+                                    <td><b>Nama Pemesan</b></td>
                                     <td id="getCustomerName_n"></td>
                                 </tr>
                                 <tr>
@@ -389,7 +389,7 @@ if (mysqli_num_rows($rooms_result) > 0) {
                                     <td id="getRoomType_n"></td>
                                 </tr>
                                 <tr>
-                                    <td><b>Room Number</b></td>
+                                    <td><b>Nomor Kamar</b></td>
                                     <td id="getRoomNo_n"></td>
                                 </tr>
                                 <tr>
@@ -401,11 +401,11 @@ if (mysqli_num_rows($rooms_result) > 0) {
                                     <td id="getCheckOut_n"></td>
                                 </tr>
                                 <tr>
-                                    <td><b>Total Amount</b></td>
+                                    <td><b>Total Harga Sewa</b></td>
                                     <td id="getTotalPrice_n"></td>
                                 </tr>
                                 <tr>
-                                    <td><b>Remaining Amount</b></td>
+                                    <td><b>Sisa Pembayaran</b></td>
                                     <td id="getRemainingPrice_n"></td>
                                 </tr>
                                 </tbody>
@@ -413,14 +413,14 @@ if (mysqli_num_rows($rooms_result) > 0) {
                             <form role="form" id="checkOutRoom_n" data-toggle="validator">
                                 <div class="checkout-response"></div>
                                 <div class="form-group col-lg-12">
-                                    <label><b>Remaining Payment</b></label>
+                                    <label><b>Nominal Sisa Pembayaran</b></label>
                                     <input type="text" class="form-control" id="remaining_amount"
-                                           placeholder="Remaining Payment" required
-                                           data-error="Please Enter Remaining Amount">
+                                           placeholder="Masukkan Nominal Sisa Pembayaran" required
+                                           data-error="Tolong Masukkan Data Yang Benar">
                                     <div class="help-block with-errors"></div>
                                 </div>
                                 <input type="hidden" id="getBookingId_n" value="">
-                                <button type="submit" class="btn btn-primary pull-right">Proceed Checkout</button>
+                                <button type="submit" class="btn btn-primary pull-right">Konfirmasi Checkout</button>
                             </form>
                         </div>
                     </div>
