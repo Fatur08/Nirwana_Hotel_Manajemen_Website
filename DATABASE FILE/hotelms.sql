@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 02, 2023 at 11:32 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Waktu pembuatan: 25 Jul 2024 pada 03.41
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `booking`
+-- Struktur dari tabel `booking`
 --
 
 CREATE TABLE `booking` (
@@ -37,24 +37,12 @@ CREATE TABLE `booking` (
   `total_price` int(10) NOT NULL,
   `remaining_price` int(10) NOT NULL,
   `payment_status` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `booking`
---
-
-INSERT INTO `booking` (`booking_id`, `customer_id`, `room_id`, `booking_date`, `check_in`, `check_out`, `total_price`, `remaining_price`, `payment_status`) VALUES
-(25, 27, 32, '2023-08-01 12:01:43', '07-08-2023', '18-08-2023', 18000, 0, 1),
-(26, 28, 11, '2023-08-01 12:02:08', '01-08-2023', '29-08-2023', 58000, 0, 1),
-(27, 29, 12, '2023-08-01 12:05:55', '07-08-2023', '18-08-2023', 36000, 0, 1),
-(29, 31, 32, '2023-08-02 07:11:44', '07-08-2023', '25-08-2023', 28500, 0, 1),
-(43, 45, 31, '2023-08-02 09:28:57', '07-08-2023', '31-08-2023', 25000, 0, 1),
-(44, 46, 31, '2023-08-02 09:31:24', '04-08-2023', '22-08-2023', 19000, 19000, 0);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `complaint`
+-- Struktur dari tabel `complaint`
 --
 
 CREATE TABLE `complaint` (
@@ -66,10 +54,10 @@ CREATE TABLE `complaint` (
   `resolve_status` tinyint(1) NOT NULL,
   `resolve_date` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `budget` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `complaint`
+-- Dumping data untuk tabel `complaint`
 --
 
 INSERT INTO `complaint` (`id`, `complainant_name`, `complaint_type`, `complaint`, `created_at`, `resolve_status`, `resolve_date`, `budget`) VALUES
@@ -81,7 +69,7 @@ INSERT INTO `complaint` (`id`, `complainant_name`, `complaint_type`, `complaint`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customer`
+-- Struktur dari tabel `customer`
 --
 
 CREATE TABLE `customer` (
@@ -92,10 +80,10 @@ CREATE TABLE `customer` (
   `id_card_type_id` int(10) NOT NULL,
   `id_card_no` varchar(20) NOT NULL,
   `address` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `customer`
+-- Dumping data untuk tabel `customer`
 --
 
 INSERT INTO `customer` (`customer_id`, `customer_name`, `contact_no`, `email`, `id_card_type_id`, `id_card_no`, `address`) VALUES
@@ -147,7 +135,7 @@ INSERT INTO `customer` (`customer_id`, `customer_name`, `contact_no`, `email`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `emp_history`
+-- Struktur dari tabel `emp_history`
 --
 
 CREATE TABLE `emp_history` (
@@ -157,10 +145,10 @@ CREATE TABLE `emp_history` (
   `from_date` timestamp NOT NULL DEFAULT current_timestamp(),
   `to_date` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `emp_history`
+-- Dumping data untuk tabel `emp_history`
 --
 
 INSERT INTO `emp_history` (`id`, `emp_id`, `shift_id`, `from_date`, `to_date`, `created_at`) VALUES
@@ -180,16 +168,16 @@ INSERT INTO `emp_history` (`id`, `emp_id`, `shift_id`, `from_date`, `to_date`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `id_card_type`
+-- Struktur dari tabel `id_card_type`
 --
 
 CREATE TABLE `id_card_type` (
   `id_card_type_id` int(10) NOT NULL,
   `id_card_type` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `id_card_type`
+-- Dumping data untuk tabel `id_card_type`
 --
 
 INSERT INTO `id_card_type` (`id_card_type_id`, `id_card_type`) VALUES
@@ -201,7 +189,7 @@ INSERT INTO `id_card_type` (`id_card_type_id`, `id_card_type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `room`
+-- Struktur dari tabel `room`
 --
 
 CREATE TABLE `room` (
@@ -211,36 +199,12 @@ CREATE TABLE `room` (
   `status` tinyint(1) DEFAULT NULL,
   `check_in_status` tinyint(1) NOT NULL,
   `check_out_status` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `room`
---
-
-INSERT INTO `room` (`room_id`, `room_type_id`, `room_no`, `status`, `check_in_status`, `check_out_status`) VALUES
-(11, 3, 'C-103', NULL, 0, 1),
-(12, 4, 'C-104', NULL, 0, 1),
-(13, 4, 'D-101', NULL, 0, 1),
-(14, 5, 'K-699', NULL, 0, 1),
-(15, 5, 'K-799', NULL, 0, 1),
-(16, 5, 'K-899', NULL, 0, 0),
-(17, 6, 'M-333', NULL, 0, 0),
-(18, 6, 'M-444', NULL, 0, 0),
-(19, 6, 'M-555', NULL, 0, 0),
-(20, 9, 'P-696', NULL, 0, 0),
-(21, 10, 'M-966', NULL, 0, 0),
-(22, 10, 'M-869', NULL, 0, 1),
-(23, 8, 'Z-666', NULL, 0, 0),
-(24, 7, 'X-969', NULL, 0, 0),
-(25, 8, 'Z-111', NULL, 0, 0),
-(26, 6, 'M-135', NULL, 0, 0),
-(31, 1, 'A-103', 1, 0, 1),
-(32, 2, 'A-104', NULL, 0, 1);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `room_type`
+-- Struktur dari tabel `room_type`
 --
 
 CREATE TABLE `room_type` (
@@ -248,10 +212,10 @@ CREATE TABLE `room_type` (
   `room_type` varchar(100) NOT NULL,
   `price` int(10) NOT NULL,
   `max_person` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `room_type`
+-- Dumping data untuk tabel `room_type`
 --
 
 INSERT INTO `room_type` (`room_type_id`, `room_type`, `price`, `max_person`) VALUES
@@ -269,17 +233,17 @@ INSERT INTO `room_type` (`room_type_id`, `room_type`, `price`, `max_person`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `shift`
+-- Struktur dari tabel `shift`
 --
 
 CREATE TABLE `shift` (
   `shift_id` int(10) NOT NULL,
   `shift` varchar(100) NOT NULL,
   `shift_timing` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `shift`
+-- Dumping data untuk tabel `shift`
 --
 
 INSERT INTO `shift` (`shift_id`, `shift`, `shift_timing`) VALUES
@@ -291,7 +255,7 @@ INSERT INTO `shift` (`shift_id`, `shift`, `shift_timing`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `staff`
+-- Struktur dari tabel `staff`
 --
 
 CREATE TABLE `staff` (
@@ -306,10 +270,10 @@ CREATE TABLE `staff` (
   `salary` bigint(20) NOT NULL,
   `joining_date` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `staff`
+-- Dumping data untuk tabel `staff`
 --
 
 INSERT INTO `staff` (`emp_id`, `emp_name`, `staff_type_id`, `shift_id`, `id_card_type`, `id_card_no`, `address`, `contact_no`, `salary`, `joining_date`, `updated_at`) VALUES
@@ -328,16 +292,16 @@ INSERT INTO `staff` (`emp_id`, `emp_name`, `staff_type_id`, `shift_id`, `id_card
 -- --------------------------------------------------------
 
 --
--- Table structure for table `staff_type`
+-- Struktur dari tabel `staff_type`
 --
 
 CREATE TABLE `staff_type` (
   `staff_type_id` int(10) NOT NULL,
   `staff_type` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `staff_type`
+-- Dumping data untuk tabel `staff_type`
 --
 
 INSERT INTO `staff_type` (`staff_type_id`, `staff_type`) VALUES
@@ -354,7 +318,7 @@ INSERT INTO `staff_type` (`staff_type_id`, `staff_type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -364,10 +328,10 @@ CREATE TABLE `user` (
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `username`, `email`, `password`, `created_at`) VALUES
@@ -378,7 +342,7 @@ INSERT INTO `user` (`id`, `name`, `username`, `email`, `password`, `created_at`)
 --
 
 --
--- Indexes for table `booking`
+-- Indeks untuk tabel `booking`
 --
 ALTER TABLE `booking`
   ADD PRIMARY KEY (`booking_id`),
@@ -386,20 +350,20 @@ ALTER TABLE `booking`
   ADD KEY `room_id` (`room_id`);
 
 --
--- Indexes for table `complaint`
+-- Indeks untuk tabel `complaint`
 --
 ALTER TABLE `complaint`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `customer`
+-- Indeks untuk tabel `customer`
 --
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`customer_id`),
   ADD KEY `customer_id_type` (`id_card_type_id`);
 
 --
--- Indexes for table `emp_history`
+-- Indeks untuk tabel `emp_history`
 --
 ALTER TABLE `emp_history`
   ADD PRIMARY KEY (`id`),
@@ -407,32 +371,32 @@ ALTER TABLE `emp_history`
   ADD KEY `shift_id` (`shift_id`);
 
 --
--- Indexes for table `id_card_type`
+-- Indeks untuk tabel `id_card_type`
 --
 ALTER TABLE `id_card_type`
   ADD PRIMARY KEY (`id_card_type_id`);
 
 --
--- Indexes for table `room`
+-- Indeks untuk tabel `room`
 --
 ALTER TABLE `room`
   ADD PRIMARY KEY (`room_id`),
   ADD KEY `room_type_id` (`room_type_id`);
 
 --
--- Indexes for table `room_type`
+-- Indeks untuk tabel `room_type`
 --
 ALTER TABLE `room_type`
   ADD PRIMARY KEY (`room_type_id`);
 
 --
--- Indexes for table `shift`
+-- Indeks untuk tabel `shift`
 --
 ALTER TABLE `shift`
   ADD PRIMARY KEY (`shift_id`);
 
 --
--- Indexes for table `staff`
+-- Indeks untuk tabel `staff`
 --
 ALTER TABLE `staff`
   ADD PRIMARY KEY (`emp_id`),
@@ -441,119 +405,119 @@ ALTER TABLE `staff`
   ADD KEY `staff_type_id` (`staff_type_id`);
 
 --
--- Indexes for table `staff_type`
+-- Indeks untuk tabel `staff_type`
 --
 ALTER TABLE `staff_type`
   ADD PRIMARY KEY (`staff_type_id`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `booking`
+-- AUTO_INCREMENT untuk tabel `booking`
 --
 ALTER TABLE `booking`
   MODIFY `booking_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
--- AUTO_INCREMENT for table `complaint`
+-- AUTO_INCREMENT untuk tabel `complaint`
 --
 ALTER TABLE `complaint`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `customer`
+-- AUTO_INCREMENT untuk tabel `customer`
 --
 ALTER TABLE `customer`
   MODIFY `customer_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
--- AUTO_INCREMENT for table `emp_history`
+-- AUTO_INCREMENT untuk tabel `emp_history`
 --
 ALTER TABLE `emp_history`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT for table `id_card_type`
+-- AUTO_INCREMENT untuk tabel `id_card_type`
 --
 ALTER TABLE `id_card_type`
   MODIFY `id_card_type_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `room`
+-- AUTO_INCREMENT untuk tabel `room`
 --
 ALTER TABLE `room`
-  MODIFY `room_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `room_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT for table `room_type`
+-- AUTO_INCREMENT untuk tabel `room_type`
 --
 ALTER TABLE `room_type`
   MODIFY `room_type_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `shift`
+-- AUTO_INCREMENT untuk tabel `shift`
 --
 ALTER TABLE `shift`
   MODIFY `shift_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `staff`
+-- AUTO_INCREMENT untuk tabel `staff`
 --
 ALTER TABLE `staff`
   MODIFY `emp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT for table `staff_type`
+-- AUTO_INCREMENT untuk tabel `staff_type`
 --
 ALTER TABLE `staff_type`
   MODIFY `staff_type_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `booking`
+-- Ketidakleluasaan untuk tabel `booking`
 --
 ALTER TABLE `booking`
   ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`),
   ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`room_id`) REFERENCES `room` (`room_id`);
 
 --
--- Constraints for table `customer`
+-- Ketidakleluasaan untuk tabel `customer`
 --
 ALTER TABLE `customer`
   ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`id_card_type_id`) REFERENCES `id_card_type` (`id_card_type_id`);
 
 --
--- Constraints for table `emp_history`
+-- Ketidakleluasaan untuk tabel `emp_history`
 --
 ALTER TABLE `emp_history`
   ADD CONSTRAINT `emp_history_ibfk_1` FOREIGN KEY (`emp_id`) REFERENCES `staff` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `emp_history_ibfk_2` FOREIGN KEY (`shift_id`) REFERENCES `shift` (`shift_id`);
 
 --
--- Constraints for table `room`
+-- Ketidakleluasaan untuk tabel `room`
 --
 ALTER TABLE `room`
   ADD CONSTRAINT `room_ibfk_1` FOREIGN KEY (`room_type_id`) REFERENCES `room_type` (`room_type_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `staff`
+-- Ketidakleluasaan untuk tabel `staff`
 --
 ALTER TABLE `staff`
   ADD CONSTRAINT `staff_ibfk_1` FOREIGN KEY (`id_card_type`) REFERENCES `id_card_type` (`id_card_type_id`),

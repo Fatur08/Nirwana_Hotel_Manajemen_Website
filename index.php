@@ -50,7 +50,7 @@ elseif (isset($_GET['proses_hapus'])){
     include_once "crud_gc/proses_hapus.php";
 }
 else{
-    include_once "room_mang.php";
+    include_once "home.php";
 }
 
 include_once "footer.php";

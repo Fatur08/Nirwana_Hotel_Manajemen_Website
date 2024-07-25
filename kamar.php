@@ -4,7 +4,7 @@
             <li><a href="#">
                     <em class="fa fa-home"></em>
                 </a></li>
-            <li class="active">Manage Rooms</li>
+            <li class="active">Kelola Kamar</li>
         </ol>
     </div><!--/.row-->
 
@@ -19,8 +19,8 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Manage Rooms
-                    <button class="btn btn-secondary pull-right" style="border-radius:0%" data-toggle="modal" data-target="#addRoom">Add Rooms</button>
+                <div class="panel-heading">Kelola Kamar
+                    <button class="btn btn-secondary pull-right" style="border-radius:0%" data-toggle="modal" data-target="#addRoom">Tambah Kamar</button>
                 </div>
                 <div class="panel-body">
                     <?php
@@ -39,12 +39,12 @@
                            id="rooms">
                         <thead>
                         <tr>
-                            <th>Room No</th>
-                            <th>Room Type</th>
+                            <th>No. Kamar</th>
+                            <th>Tipe Kamar</th>
                             <th>Booking Status</th>
                             <th>Check In</th>
                             <th>Check Out</th>
-                            <th>Action</th>
+                            <th>Aksi</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -117,7 +117,7 @@ if (mysqli_num_rows($rooms_result) > 0) {
                                     
                                     <td>
 
-                                        <button title="Edit Room Information" style="border-radius:60px;" data-toggle="modal"
+                                        <button title="Edit Kamar Information" style="border-radius:60px;" data-toggle="modal"
                                                 data-target="#editRoom" data-id="<?php echo $rooms['room_id']; ?>"
                                                 id="roomEdit" class="btn btn-info"><i class="fa fa-pencil"></i></button>
                                         <?php
@@ -153,7 +153,7 @@ if (mysqli_num_rows($rooms_result) > 0) {
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Add New Room</h4>
+                    <h4 class="modal-title">Tambah Kamar Baru</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -161,10 +161,10 @@ if (mysqli_num_rows($rooms_result) > 0) {
                             <form id="addRoom" data-toggle="validator" role="form">
                                 <div class="response"></div>
                                 <div class="form-group">
-                                    <label>Room Type</label>
+                                    <label>Tipe Kamar</label>
                                     <select class="form-control" id="room_type_id" required
-                                            data-error="Select Room Type">
-                                        <option selected disabled>Select Room Type</option>
+                                            data-error="Pilih Tipe Kamar">
+                                        <option selected disabled>Pilih Tipe Kamar</option>
                                         <?php
                                         $query = "SELECT * FROM room_type";
                                         $result = mysqli_query($connection, $query);
@@ -179,9 +179,9 @@ if (mysqli_num_rows($rooms_result) > 0) {
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Room No</label>
-                                    <input class="form-control" placeholder="Room No" id="room_no"
-                                           data-error="Enter Room No" required>
+                                    <label>Nomor Kamar</label>
+                                    <input class="form-control" placeholder="Nomor Kamar" id="room_no"
+                                           data-error="Masukkan Nomor Kamar" required>
                                     <div class="help-block with-errors"></div>
                                 </div>
                                 <button class="btn btn-success pull-right">Add Room</button>
@@ -194,14 +194,14 @@ if (mysqli_num_rows($rooms_result) > 0) {
         </div>
     </div>
 
-    <!--Edit Room Modal -->
+    <!--Edit Kamar Modal -->
     <div id="editRoom" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Edit Room</h4>
+                    <h4 class="modal-title">Edit Kamar</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -209,10 +209,10 @@ if (mysqli_num_rows($rooms_result) > 0) {
                             <form id="roomEditFrom" data-toggle="validator" role="form">
                                 <div class="edit_response"></div>
                                 <div class="form-group">
-                                    <label>Room Type</label>
+                                    <label>Tipe Kamar</label>
                                     <select class="form-control" id="edit_room_type" required
-                                            data-error="Select Room Type">
-                                        <option selected disabled>Select Room Type</option>
+                                            data-error="Select Tipe Kamar">
+                                        <option selected disabled>Pilih Tipe Kamar</option>
                                         <?php
                                         $query = "SELECT * FROM room_type";
                                         $result = mysqli_query($connection, $query);
@@ -228,14 +228,14 @@ if (mysqli_num_rows($rooms_result) > 0) {
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Room No</label>
-                                    <input class="form-control" placeholder="Room No" id="edit_room_no" required
-                                           data-error="Enter Room No">
+                                    <label>Nomor Kamar</label>
+                                    <input class="form-control" placeholder="Nomor Kamar" id="edit_room_no" required
+                                           data-error="Masukkan Nomor Kamar">
                                     <div class="help-block with-errors"></div>
                                 </div>
 
                                 <input type="hidden" id="edit_room_id">
-                                <button class="btn btn-success pull-right">Edit Room</button>
+                                <button class="btn btn-success pull-right">Edit Kamar</button>
                             </form>
                         </div>
                     </div>
@@ -324,7 +324,7 @@ if (mysqli_num_rows($rooms_result) > 0) {
                                     <td id="getCustomerName"></td>
                                 </tr>
                                 <tr>
-                                    <td><b>Room Type</b></td>
+                                    <td><b>Tipe Kamar</b></td>
                                     <td id="getRoomType"></td>
                                 </tr>
                                 <tr>
@@ -385,7 +385,7 @@ if (mysqli_num_rows($rooms_result) > 0) {
                                     <td id="getCustomerName_n"></td>
                                 </tr>
                                 <tr>
-                                    <td><b>Room Type</b></td>
+                                    <td><b>Tipe Kamar</b></td>
                                     <td id="getRoomType_n"></td>
                                 </tr>
                                 <tr>
