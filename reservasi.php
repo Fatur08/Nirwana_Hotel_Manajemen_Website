@@ -134,55 +134,82 @@ if (isset($_GET['room_id'])){
                     <div class="panel panel-default">
                         <div class="panel-heading">Detail Kustomer:</div>
                         <div class="panel-body">
+                            <!--
                             <div class="form-group col-lg-6">
                                 <label>Nama Depan</label>
                                 <input class="form-control" placeholder="Nama Depan" id="first_name" data-error="Enter First Name" required>
                                 <div class="help-block with-errors"></div>
                             </div>
 
+                            
+
                             <div class="form-group col-lg-6">
                                 <label>Nama Belakang</label>
                                 <input class="form-control" placeholder="Nama Belakang" id="last_name">
                             </div>
-
+                            
                             <div class="form-group col-lg-6">
                                 <label>Nomor Handphone</label>
                                 <input type="number" class="form-control" data-error="Enter Min 10 Digit" data-minlength="10" placeholder="Nomor Handphone" id="contact_no" required>
                                 <div class="help-block with-errors"></div>
                             </div>
-
-                            <div class="form-group col-lg-6">
-                                <label>Email</label>
-                                <input type="email" class="form-control" placeholder="Email" id="email" data-error="Enter Valid Email Address" required>
-                                <div class="help-block with-errors"></div>
-                            </div>
-
-                            <div class="form-group col-lg-6">
-                                <label>Jenis Kartu ID</label>
-                                <select class="form-control" id="id_card_id" data-error="Pilih Jenis Kartu ID" required onchange="validId(this.value);">
-                                    <option selected disabled>Pilih Jenis Kartu ID</option>
-                                    <?php
-                                    $query  = "SELECT * FROM id_card_type";
-                                    $result = mysqli_query($connection,$query);
-                                    if (mysqli_num_rows($result) > 0){
-                                        while ($id_card_type = mysqli_fetch_assoc($result)){
-                                            echo '<option value="'.$id_card_type['id_card_type_id'].'">'.$id_card_type['id_card_type'].'</option>';
-                                        }}
-                                    ?>
-                                </select>
-                                <div class="help-block with-errors"></div>
-                            </div>
-
-                            <div class="form-group col-lg-6">
-                                <label>Nomor Kartu ID</label>
-                                <input type="text" class="form-control" placeholder="Nomor Kartu ID" id="id_card_no" data-error="Enter Valid ID Card No" required>
-                                <div class="help-block with-errors"></div>
-                            </div>
-
-                            <div class="form-group col-lg-12">
-                                <label>Alamat Tempat Tinggal</label>
-                                <input type="text" class="form-control" placeholder="Alamat Tempat Tinggal" id="address" required>
-                                <div class="help-block with-errors"></div>
+                            -->
+                            
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <label>Nama Kustomer</label>
+                                        <input class="form-control" placeholder="Nama Depan" id="customer_name" data-error="Harap Masukkan Data Yang Benar" required>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <a href="#">
+                                            <button class="btn btn-lg btn-success pull-right" style="width: 100%; margin-top:25px;">Cek</button>
+                                        </a>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <label>Nomor Handphone</label>
+                                        <input type="number" class="form-control" data-error="Enter Min 10 Digit" data-minlength="10" placeholder="Nomor Handphone" id="contact_no" required>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label>Email</label>
+                                        <input type="email" class="form-control" placeholder="Email" id="email" data-error="Enter Valid Email Address" required>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <label>Jenis Kartu ID</label>
+                                        <select class="form-control" id="id_card_id" data-error="Pilih Jenis Kartu ID" required onchange="validId(this.value);">
+                                            <option selected disabled>Pilih Jenis Kartu ID</option>
+                                            <?php
+                                            $query  = "SELECT * FROM id_card_type";
+                                            $result = mysqli_query($connection,$query);
+                                            if (mysqli_num_rows($result) > 0){
+                                                while ($id_card_type = mysqli_fetch_assoc($result)){
+                                                    echo '<option value="'.$id_card_type['id_card_type_id'].'">'.$id_card_type['id_card_type'].'</option>';
+                                                }}
+                                            ?>
+                                        </select>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label>Nomor Kartu ID</label>
+                                        <input type="text" class="form-control" placeholder="Nomor Kartu ID" id="id_card_no" data-error="Enter Valid ID Card No" required>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <label>Alamat Tempat Tinggal</label>
+                                        <input type="text" class="form-control" placeholder="Alamat Tempat Tinggal" id="address" required>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

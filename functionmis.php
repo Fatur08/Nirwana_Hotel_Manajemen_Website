@@ -32,8 +32,9 @@ if (isset($_POST['login'])) {
 if (isset($_POST['submit'])) {
 
     $emp_id = $_POST['emp_id'];
-    $first_name = $_POST['first_name'];
-    $last_name = $_POST['last_name'];
+    $customer_name = $_POST['customer_name'];
+    //$first_name = $_POST['first_name'];
+    //$last_name = $_POST['last_name'];
     $staff_type_id = $_POST['staff_type_id'];
     $shift_id= $_POST['shift_id'];
     $id_card_type = $_POST['id_card_type'];
@@ -45,7 +46,7 @@ if (isset($_POST['submit'])) {
     $salary = $_POST['salary'];
 
     $query="UPDATE staff
-SET emp_name='$first_name $last_name', 
+SET emp_name='$customer_name', 
     staff_type_id='$staff_type_id', 
     shift_id='$shift_id', 
     id_card_type=$id_card_type,

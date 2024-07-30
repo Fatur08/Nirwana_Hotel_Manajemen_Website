@@ -143,8 +143,7 @@ $('#booking').submit(function () {
     var room_no = $("#room_no :selected").text();
     var check_in_date = $('#check_in_date').val();
     var check_out_date = $('#check_out_date').val();
-    var first_name = $('#first_name').val();
-    var last_name = $('#last_name').val();
+    var customer_name = $('#customer_name').val();
     var contact_no = $('#contact_no').val();
     var email = $('#email').val();
     var id_card_id = $('#id_card_id').val();
@@ -152,7 +151,7 @@ $('#booking').submit(function () {
     var address = $('#address').val();
     var total_price = document.getElementById('total_price').innerHTML;
 
-    if(!room_no && !first_name && !contact_no && !id_card_no && !address){
+    if(!room_no && !customer_name && !contact_no && !id_card_no && !address){
         $('.response').html('<div class="alert bg-danger alert-dismissable" role="alert"><em class="fa fa-lg fa-warning">&nbsp;</em>Please Fill Cardinality</div>');
     }else{
         $.ajax({
@@ -165,7 +164,7 @@ $('#booking').submit(function () {
                 check_in:check_in_date,
                 check_out:check_out_date,
                 total_price:total_price,
-                name:first_name+' '+last_name,
+                name:customer_name,
                 contact_no:contact_no,
                 email:email,
                 id_card_id:id_card_id,
@@ -175,7 +174,7 @@ $('#booking').submit(function () {
             },
             success: function (response) {
                 if (response.done == true) {
-                    $('#getCustomerName').html(first_name+' '+last_name);
+                    $('#getCustomerName').html(customer_name);
                     $('#getRoomType').html(room_type);
                     $('#getRoomNo').html(room_no);
                     $('#getCheckIn').html(check_in_date);
