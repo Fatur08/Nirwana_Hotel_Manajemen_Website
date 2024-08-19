@@ -136,6 +136,45 @@ function fetch_price(val) {
     });
 }
 
+$(document).on('click', '#cek', function (e) {
+    e.preventDefault();
+
+    var room_id = $(this).data('id');
+    // alert(room_id);
+    console.log(room_id);
+
+    $.ajax({
+        type: 'post',
+        url: 'ajax.php',
+        dataType: 'JSON',
+        data: {
+            room_id: room_id,
+            cutomerDetails: ''
+        },
+        success: function (response) {
+
+
+            if (response.done == true) {
+
+
+                $('#customer_name').html(response.customer_name);
+                $('#customer_contact_no').html(response.contact_no);
+                $('#customer_email').html(response.email);
+                //$('#customer_id_card_type').html(response.id_card_type_id);
+                $('#customer_id_card_number').html(response.id_card_no);
+                $('#customer_address').html(response.address);
+                $('#remaining_price').html(response.remaining_price);
+
+            } else {
+
+
+                $('.edit_response').html('<div class="alert bg-danger alert-dismissable" role="alert"><em class="fa fa-lg fa-warning">&nbsp;</em>' + response.data + '</div>');
+            }
+        }
+    });
+
+});
+
 $('#booking').submit(function () {
     var room_type_id = $('#room_type').val();
     var room_type = $("#room_type :selected").text();
@@ -146,7 +185,7 @@ $('#booking').submit(function () {
     var customer_name = $('#customer_name').val();
     var contact_no = $('#contact_no').val();
     var email = $('#email').val();
-    var id_card_id = $('#id_card_id').val();
+    //var id_card_id = $('#id_card_id').val();
     var id_card_no = $('#id_card_no').val();
     var address = $('#address').val();
     var total_price = document.getElementById('total_price').innerHTML;
@@ -167,7 +206,7 @@ $('#booking').submit(function () {
                 name:customer_name,
                 contact_no:contact_no,
                 email:email,
-                id_card_id:id_card_id,
+                //id_card_id:id_card_id,
                 id_card_no:id_card_no,
                 address:address,
                 booking:''
@@ -217,7 +256,7 @@ $(document).on('click', '#cutomerDetails', function (e) {
                 $('#customer_name').html(response.customer_name);
                 $('#customer_contact_no').html(response.contact_no);
                 $('#customer_email').html(response.email);
-                $('#customer_id_card_type').html(response.id_card_type_id);
+                //$('#customer_id_card_type').html(response.id_card_type_id);
                 $('#customer_id_card_number').html(response.id_card_no);
                 $('#customer_address').html(response.address);
                 $('#remaining_price').html(response.remaining_price);

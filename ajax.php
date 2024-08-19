@@ -158,11 +158,12 @@ if (isset($_POST['booking'])) {
     $name = $_POST['name'];
     $contact_no = $_POST['contact_no'];
     $email = $_POST['email'];
-    $id_card_id = $_POST['id_card_id'];
+    //$id_card_id = $_POST['id_card_id'];
     $id_card_no = $_POST['id_card_no'];
     $address = $_POST['address'];
 
-    $customer_sql = "INSERT INTO customer (customer_name,contact_no,email,id_card_type_id,id_card_no,address) VALUES ('$name','$contact_no','$email','$id_card_id','$id_card_no','$address')";
+    //$customer_sql = "INSERT INTO customer (customer_name,contact_no,email,id_card_type_id,id_card_no,address) VALUES ('$name','$contact_no','$email','$id_card_id','$id_card_no','$address')";
+    $customer_sql = "INSERT INTO customer (customer_name,contact_no,email,id_card_no,address) VALUES ('$name','$contact_no','$email','$id_card_no','$address')";
     $customer_result = mysqli_query($connection, $customer_sql);
 
     if ($customer_result) {
@@ -199,17 +200,17 @@ if (isset($_POST['cutomerDetails'])) {
         $result = mysqli_query($connection, $sql);
         if ($result) {
             $customer_details = mysqli_fetch_assoc($result);
-            $id_type = $customer_details['id_card_type_id'];
-            $query = "select id_card_type from id_card_type where id_card_type_id = '$id_type'";
-            $result = mysqli_query($connection, $query);
-            $id_type_name = mysqli_fetch_assoc($result);
+            //$id_type = $customer_details['id_card_type_id'];
+            //$query = "select id_card_type from id_card_type where id_card_type_id = '$id_type'";
+            //$result = mysqli_query($connection, $query);
+            //$id_type_name = mysqli_fetch_assoc($result);
             $response['done'] = true;
             $response['customer_id'] = $customer_details['customer_id'];
             $response['customer_name'] = $customer_details['customer_name'];
             $response['contact_no'] = $customer_details['contact_no'];
             $response['email'] = $customer_details['email'];
             $response['id_card_no'] = $customer_details['id_card_no'];
-            $response['id_card_type_id'] = $id_type_name['id_card_type'];
+            //$response['id_card_type_id'] = $id_type_name['id_card_type'];
             $response['address'] = $customer_details['address'];
             $response['remaining_price'] = $customer_details['remaining_price'];
         } else {
